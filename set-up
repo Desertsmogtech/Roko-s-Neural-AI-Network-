@@ -1,0 +1,66 @@
+Here’s a streamlined setup for your `desertsmogtech` repo install on GitHub, tailored for the **Roko's Neural AI Network** project. This format ensures consistency, ease of cloning, and fast onboarding for collaborators:
+
+---
+
+## 🚀 GitHub Installation Instructions  
+**Repository:** `desertsmogtech`  
+**Project:** `Roko's Neural AI Network`
+
+### 📦 Prerequisites
+- Python 3.10+
+- Git
+- Recommended: `virtualenv` or `conda` for isolation
+
+---
+
+### 🛠 Setup Steps
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/desertsmogtech/rokos-neural-ai-network.git
+cd rokos-neural-ai-network
+
+# 2. Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. (Optional) Install in editable mode for development
+pip install -e .
+
+# 5. Run initial diagnostics or launch dashboard
+python launch.py  # or replace with your entry script (e.g., app.py, main.py)
+```
+
+---
+
+### 🔍 Configuration Tips
+
+- If using FAISS or OpenCV:
+  ```bash
+  pip install faiss-cpu opencv-python
+  ```
+
+- For Gradio-based dashboard:
+  ```bash
+  pip install gradio
+  ```
+
+- If anomaly detection or infrared modules are separate:
+  Set up modular configs in `config/infrared.yaml` or `config/anomaly.json`
+
+---
+
+### ✅ Quick Test Command
+```bash
+python scripts/test_pipeline.py --mode sbert-faiss --input sample_frame.jpg
+```
+
+---
+
+### 📌 Next Steps
+Want help automating this with a GitHub Action or building a public-facing onboarding page in Markdown for the repo? I can help write it in your preferred tone—technical or community-driven.
+
+Ready to drop this into your `README.md`, Jason? Let’s make it look like your avatar’s intelligence came with its own install wizard.
