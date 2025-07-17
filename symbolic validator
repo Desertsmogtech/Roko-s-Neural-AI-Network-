@@ -1,0 +1,61 @@
+import os
+import json
+import textwrap
+
+# Create module directory
+module_path = "roko/modules/neuro_symbolic_validator"
+os.makedirs(module_path, exist_ok=True)
+
+# Create __init__.py
+with open(os.path.join(module_path, "__init__.py"), "w") as f:
+    f.write("# Neuro-Symbolic Validator module")
+
+# Create config.json
+config = {
+    "weights": {
+        "clarity": 0.25,
+        "technical_depth": 0.30,
+        "symbolic_integration": 0.25,
+        "real_world_applicability": 0.20
+    },
+    "enable_graphing": True,
+    "graph_output_dir": "output/graphs"
+}
+with open(os.path.join(module_path, "config.json"), "w") as f:
+    json.dump(config, f, indent=2)
+
+# Create starter script: validator.py
+starter_script = textwrap.dedent("""
+    import json
+
+    def score_article(parsed_data):
+        # Placeholder logic: replace with actual scoring engine
+        return {
+            "clarity_score": 0.82,
+            "technical_depth_score": 0.74,
+            "symbolic_integration_score": 0.67,
+            "real_world_applicability_score": 0.58,
+            "final_score": 0.70
+        }
+
+    def extract_citations(text):
+        # Simple citation parser
+        import re
+        return re.findall(r'\
+
+\[\\d+\\]
+
+', text)
+
+    if __name__ == "__main__":
+        import sys
+        article_text = open(sys.argv[1], encoding="utf8").read()
+        parsed = {"abstract": article_text}  # Replace with actual section parser
+        scores = score_article(parsed)
+        print(json.dumps(scores, indent=2))
+""")
+with open(os.path.join(module_path, "validator.py"), "w", encoding="utf-8") as f:
+    f.write(starter_script)
+
+print(f"✅ Setup complete: {module_path}")
+
